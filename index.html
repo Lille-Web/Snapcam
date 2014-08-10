@@ -4,13 +4,56 @@
 	<meta charset="UTF-8">
 	<title>SnapCam</title>
 	<script src="app.js"></script>
+	<style>
+		html, body { width: 100%; height: 100%;}
+		body {
+			height: 100%;
+			background: url(http://cockrellbekah.files.wordpress.com/2013/12/11326-red-curtain-curtain.jpg);
+			background-size: 100% 100%;
+			margin: 0;
+			padding: 0;
+		}
+		.snap {
+			width: 960px;
+			margin: auto;
+			position: relative;
+			top: 150px;
+		}
+		video, .actions {
+			border-radius: 4px;
+			display: block;
+			margin: auto;
+			width: 680px;
+		}
+		.history {
+			position: absolute;
+			right: 0;
+			top: 0;
+			width: 250px;
+			height: 100%;
+		}
+		.history canvas {
+			opacity: 0.9;
+		}
+		.history canvas:hover {
+			opacity: 1;
+		}
+	</style>
 </head>
 <body>
-	<video src=""></video>
+	<div class="snap">
+		<video src=""></video>
+	
+		<div class="actions">
+			<button onclick="javascript:toggle()">Toggle</button>
+			<button onclick="javascript:takeSnap()">Take a snapshot !</button>
+		</div>
+	</div>
 
-	<button onclick="javascript:toggle()">Toggle</button>
-	<button onclick="javascript:takeSnap()">Take a snapshot !</button>
-
-	<canvas></canvas>
+	<div class="history">
+		<canvas id="history1"></canvas>
+		<canvas id="history2"></canvas>
+		<canvas id="history3"></canvas>
+	</div>
 </body>
 </html>

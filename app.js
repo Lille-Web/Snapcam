@@ -1,3 +1,5 @@
+var historyNumber = 1;
+
 (function () {
 	navigator.getUserMedia = ( navigator.getUserMedia ||
                        navigator.webkitGetUserMedia ||
@@ -32,7 +34,9 @@ function toggle() {
 }
 
 function takeSnap() {
-	var canvas = document.querySelector('canvas'),
+	historyNumber > 3 ? historyNumber-- : null;
+
+	var canvas = document.querySelector('#history'+ historyNumber),
 	video = document.querySelector('video');
 
 	canvas.width = 300;
@@ -40,4 +44,5 @@ function takeSnap() {
   canvas.getContext('2d').drawImage(video, 0, 0, 300, 200);
   var data = canvas.toDataURL('image/png');
   canvas.setAttribute('src', data);
+  historyNumber++;
 }
